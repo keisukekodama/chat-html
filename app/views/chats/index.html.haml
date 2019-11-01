@@ -1,0 +1,53 @@
+.wrapper
+
+  = render 'shared/side_bar'
+
+  .chat
+    .chat-header
+      .left-header
+        .left-header__title
+          グループ名
+        %ul.left-header__members
+          Member：
+          %li.left-header__members-member
+            メンバー名
+          %li.left-header__members-member
+            メンバー名
+          %li.left-header__members-member
+            メンバー名
+      .right-header
+        .right-header__button
+          Edit
+    .messages
+      .messages__message-upper
+        .messages__message-upper-name
+          メンバー
+        .messages__message-upper-date
+          2017/04/04
+      .messages__message-lower
+        .messages__message-lower-comment
+          メッセージ
+      .messages__message-upper
+        .messages__message-upper-name
+          メンバー
+        .messages__message-upper-date
+          2017/04/04
+      .messages__message-lower
+        .messages__message-lower-comment
+          メッセージ
+      .messages__message-upper
+        .messages__message-upper-name
+          メンバー
+        .messages__message-upper-date
+          2017/04/04
+      .messages__message-lower
+        .messages__message-lower-comment
+          メッセージ
+    
+    = form_for :group ,html:{class: "form"} do |f| 
+      = f.text_field "content", class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        %label.form__mask__image
+          = icon('far', 'image') 
+          = f.file_field "image" ,class: "form__mask__hidden"
+      = f.submit 'Send',class: "form__submit"
